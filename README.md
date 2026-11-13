@@ -5,7 +5,9 @@
 
 # sitedia for Claude
 
-Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가 sitedia 대지분석 다이어그램을 그려 주고 대화로 SVG도 고칩니다. 지금은 베타입니다.
+Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가 sitedia 대지분석 다이어그램을 그려 주고 대화로 SVG도 고칩니다.
+
+베타 서비스 중입니다. Pro 이용권이 있는 분만 쓸 수 있습니다.
 
 ## 설치
 
