@@ -12,7 +12,8 @@ sitedia 커넥터 도구로 도판(SVG)을 만들고, 사용자와 대화하면�
 ## 1. 연결 확인
 - sitedia 도구(`find_site`, `create_diagram` …)가 안 보이면 연결부터 안내한다. 커넥터 주소는 `https://sitedia.app/mcp`이고, 연결할 때 sitedia 로그인 창(구글·이메일, 홈페이지와 같은 계정)이 뜬다.
   - Claude Code: `/mcp` → sitedia → Authenticate.
-  - claude.ai·Cowork: 플러그인의 **Connectors** 탭에서 sitedia «연결». 팀·엔터프라이즈 요금제에서 «연결»이 눌리지 않으면 Owner가 먼저 **조직 설정 → Connectors → 추가 → Custom**에 `https://sitedia.app/mcp`를 넣어야 한다(플러그인을 올려도 커넥터는 조직에 저절로 들어가지 않는다).
+  - claude.ai·Cowork: 플러그인의 **커넥터(Connectors)** 탭에서 sitedia «연결». 팀·엔터프라이즈 요금제에서 «연결»이 눌리지 않으면 Owner가 먼저 **조직 설정 → 커넥터(Organization settings → Connectors)**에서 `https://sitedia.app/mcp`를 커스텀 커넥터로 추가해야 한다(플러그인을 올려도 커넥터는 조직에 저절로 들어가지 않는다).
+  - 메뉴 이름은 사용자 화면 언어로 말한다. 한국어 화면: 설정의 «사용자 지정» 묶음 → «커넥터»·«플러그인», «추가», «커스텀 커넥터 추가», «연결».
 - 도구가 «unauthorized»·401로 실패하면 연결이 풀린 것이다(sitedia 계정 탈퇴·연결 해제 등). 같은 방법으로 다시 연결하라고 안내한다.
 
 ## 2. 만들기

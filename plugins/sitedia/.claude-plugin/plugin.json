@@ -1,6 +1,6 @@
 {
   "name": "sitedia",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "sitedia 대지분석 다이어그램을 주소·반경으로 만들고 대화로 SVG를 고칩니다. sitedia 계정으로 연결하고 나라별 이용권으로 씁니다(베타). 예: /sitedia 강남역 반경 500m 건축물 용도",
   "author": {
     "name": "sitedia",

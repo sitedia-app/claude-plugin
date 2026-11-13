@@ -11,11 +11,11 @@ Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가
 
 **claude.ai·Cowork**
 
-1. Customize → Plugins → Add → Add marketplace에 `sitedia-app/claude-plugin`을 넣습니다.
+1. 사용자 지정 → 플러그인 → 추가 → 마켓플레이스 추가(Customize → Plugins → Add → Add marketplace)에 `sitedia-app/claude-plugin`을 넣습니다.
 2. 목록에 나온 sitedia를 추가합니다.
-3. 플러그인의 Connectors 탭에서 sitedia «연결»을 누르고 sitedia 계정으로 로그인합니다. 커넥터가 아직 없으면 그 탭에서 먼저 추가합니다.
+3. 플러그인의 커넥터(Connectors) 탭에서 sitedia «연결»을 누르고 sitedia 계정으로 로그인합니다. 커넥터가 아직 없으면 그 탭에서 먼저 추가합니다.
 
-팀·엔터프라이즈 요금제는 조직 Owner가 먼저 조직 설정 → Connectors → Add → Custom에 `https://sitedia.app/mcp`를 넣어야 «연결»이 눌립니다.
+팀·엔터프라이즈 요금제는 조직 Owner가 먼저 조직 설정 → 커넥터(Organization settings → Connectors)에서 `https://sitedia.app/mcp`를 커스텀 커넥터로 추가해야 «연결»이 눌립니다.
 
 **Claude Code**
 
