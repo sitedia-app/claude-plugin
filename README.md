@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/wordmark-paper.svg">
+  <img alt="sitedia." src="assets/wordmark-ink.svg" height="40">
+</picture>
+
 # sitedia for Claude
 
 Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가 sitedia 대지분석 다이어그램을 그려 주고 대화로 SVG도 고쳐요. 지금은 베타예요.
