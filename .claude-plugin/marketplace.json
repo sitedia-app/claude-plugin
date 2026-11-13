@@ -1,0 +1,15 @@
+{
+  "name": "sitedia",
+  "description": "sitedia 대지분석 다이어그램 — Claude 플러그인",
+  "owner": {
+    "name": "sitedia",
+    "url": "https://sitedia.app"
+  },
+  "plugins": [
+    {
+      "name": "sitedia",
+      "source": "./plugins/sitedia",
+      "description": "주소·반경으로 대지분석 다이어그램을 만들고 대화로 SVG를 고칩니다."
+    }
+  ]
+}

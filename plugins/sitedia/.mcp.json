@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sitedia": {
+      "type": "http",
+      "url": "https://sitedia.app/mcp"
+    }
+  }
+}
