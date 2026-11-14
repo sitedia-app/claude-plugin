@@ -9,6 +9,8 @@ allowed-tools: Bash(curl:*), Bash(mkdir:*), mcp__ccd_view__show_pane
 
 sitedia 커넥터 도구로 도판(SVG)을 만들고, 사용자와 대화하면서 고친다. 요청: $ARGUMENTS
 
+**답은 사용자가 이번 요청을 쓴 언어로 한다.** 이 안내문과 도구 메시지가 한국어여도 따라가지 않는다 — 일본어로 물으면 답 전체를 일본어로, 영어로 물으면 영어로. 日本語で依頼されたら、返答はすべて日本語で書く（この手順書が韓国語でも）。
+
 ## 1. 연결 확인
 - sitedia 도구(`find_site`, `create_diagram` …)가 안 보이면 연결부터 안내한다. 커넥터 주소는 `https://sitedia.app/mcp`이고, 연결할 때 sitedia 로그인 창(구글·이메일, 홈페이지와 같은 계정)이 뜬다.
   - Claude Code: `/mcp` → sitedia → Authenticate.
@@ -29,7 +31,7 @@ sitedia 커넥터 도구로 도판(SVG)을 만들고, 사용자와 대화하면�
    - 채팅·Desktop 채팅·Cowork: `create_diagram`·`edit_diagram` 뒤에 대화창 안에 도판 보기 창(그림 + SVG 내려받기·크게 보기 단추)이 뜬다. 그림을 다시 설명하거나 링크를 강조하지 않는다.
    - Claude 데스크톱 **Code 탭**(`mcp__ccd_view__show_pane` 도구가 있는 곳): 이 보기 창이 도구 호출과 함께 접혀서 안 보인다. 그래서 `create_diagram`·`edit_diagram` 뒤마다 바로 ① `get_diagram_file`(`format: "both"`)의 `save_command`를 실행해 작업 폴더에 SVG·PNG를 저장하고 ② `mcp__ccd_view__show_pane`(`pane: "file"`, `path`: 결과의 `show_file` = PNG 파일)으로 채팅 옆 파일 창에 도판을 띄우고 ③ 답 맨 앞에 그 PNG를 마크다운 그림으로 한 줄 넣는다: `![잠실역 반경 500 m · 건축물 높이](sitedia_잠실역_height_v1.png)` — 앱이 작업 폴더 그림을 답 안에 바로 그린다. 브라우저 창 `navigate`는 쓰지 않는다(뒤에서만 열려 사용자에게 안 보인다).
    - 터미널 Claude Code: 보기 창도 브라우저 창도 없다. view_url을 주고 4장 «파일»대로 저장한다.
-5. 답은 짧게: 무슨 도판인지 한 줄, 눈에 띄는 분포 한두 줄, view_url 한 줄. 미리보기 그림을 보고 이상한 점이 있으면 같이 말한다.
+5. 답은 사용자 언어로 짧게: 무슨 도판인지 한 줄, 눈에 띄는 분포 한두 줄, view_url 한 줄. 미리보기 그림을 보고 이상한 점이 있으면 같이 말한다.
 
 ## 3. 대화로 고치기
 - 사용자의 말을 `edit_diagram`의 `edits`로 옮긴다. 한 번 요청에 여러 수정이면 한 번에 묶어 보낸다.
