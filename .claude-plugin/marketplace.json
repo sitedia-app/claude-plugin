@@ -1,6 +1,6 @@
 {
   "name": "sitedia",
-  "description": "sitedia 대지분석 다이어그램 — Claude 플러그인",
+  "description": "sitedia 대지분석 다이어그램 — Claude 플러그인 · sitedia 敷地分析ダイアグラム — Claude プラグイン",
   "owner": {
     "name": "sitedia",
     "url": "https://sitedia.app"
@@ -9,7 +9,7 @@
     {
       "name": "sitedia",
       "source": "./plugins/sitedia",
-      "description": "주소·반경으로 대지분석 다이어그램을 만들고 대화로 SVG를 고칩니다."
+      "description": "주소·반경으로 대지분석 다이어그램을 만들고 대화로 SVG를 고칩니다. · 住所と半径で敷地分析ダイアグラムを作り、会話で SVG を修正します。"
     }
   ]
 }

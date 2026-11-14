@@ -7,7 +7,9 @@
 
 Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가 sitedia 대지분석 다이어그램을 그려 주고 대화로 SVG도 고칩니다.
 
-베타 서비스 중입니다. Pro 이용권이 있는 분만 쓸 수 있습니다.
+베타 서비스 중입니다. Pro 이용권이 없어도 처음 도판을 만들 때부터 48시간 동안 가입한 나라의 대지를 무료로 쓸 수 있습니다(계정당 한 번).
+
+[日本語](#日本語)
 
 ## 설치
 
@@ -38,5 +40,31 @@ claude plugin install sitedia --marketplace sitedia-app/claude-plugin
 ## 주고받는 곳
 
 이 플러그인은 sitedia.app 한 곳과만 통신합니다. 연결할 때 sitedia 계정으로 로그인합니다. 찾은 주소와 만든 도판은 sitedia 서버에 저장됩니다. 도판은 그 나라 sitedia 이용권이 있을 때 그립니다. Claude Code에서는 도판 파일(SVG·PNG)을 작업 폴더에 내려받을 때 curl을 씁니다.
+
+## 日本語
+
+Claude のチャット・Cowork・Claude Code で住所と半径を伝えると、Claude が sitedia の敷地分析ダイアグラムを作り、会話で SVG を修正します。
+
+ベータ版です。パスがなくても、はじめて図版を作るときから48時間、登録した国の敷地を無料で使えます（1アカウント1回）。
+
+**claude.ai・Cowork**
+
+1. 「カスタマイズ」→「プラグイン」→「追加」→「マーケットプレイスを追加」（Customize → Plugins → Add → Add marketplace）に `sitedia-app/claude-plugin` を入力します。
+2. 一覧に出た sitedia を追加します。
+3. プラグインの「コネクタ」（Connectors）タブで sitedia の「連携」（Connect）を押し、sitedia のアカウントでログインします。コネクタがまだない場合は、先にそのタブで追加してください。
+
+**Claude Code**
+
+```
+claude plugin install sitedia --marketplace sitedia-app/claude-plugin
+```
+
+そのあと `/mcp` で sitedia を選んでログインします。
+
+**使い方**
+
+`/sitedia 渋谷駅 半径500m 建物用途` のように頼むと図版を作ります。続けて「道路をグレーに」「凡例を入れて」のように話すと修正します。
+
+詳しい手順：https://sitedia.app/claude/ja/ ・ 通信先は sitedia.app だけです。
 
 © sitedia. All rights reserved.

@@ -1,7 +1,7 @@
 ---
 name: sitedia
-description: sitedia 대지분석 다이어그램을 만들고 고친다. 사용자가 /sitedia를 치거나, 어떤 장소의 대지분석 도판(건축물 용도·준공 연대·높이·건물 피규어 그라운드·도로·녹지·용도지역·필지·지형·경사·일조·개방감·가시권 등)을 만들어 달라거나, 만든 도판의 색·레이어·범례·제목·글자를 바꿔 달라고 할 때 쓴다. Site-analysis diagrams (figure-ground, building use/age/height, roads, green, zoning, sun hours) as editable SVG via the sitedia connector.
-argument-hint: "[주소·장소] [반경] [도판 종류]"
+description: sitedia 대지분석 다이어그램을 만들고 고친다. 사용자가 /sitedia를 치거나, 어떤 장소의 대지분석 도판(건축물 용도·준공 연대·높이·건물 피규어 그라운드·도로·녹지·용도지역·필지·지형·경사·일조·개방감·가시권 등)을 만들어 달라거나, 만든 도판의 색·레이어·범례·제목·글자를 바꿔 달라고 할 때 쓴다. 日本語：/sitedia、敷地分析の図版（建物用途・高さ・道路・用途地域など）の作成・修正の依頼にも使う。Site-analysis diagrams (figure-ground, building use/age/height, roads, green, zoning, sun hours) as editable SVG via the sitedia connector.
+argument-hint: "[주소·장소] [반경] [도판 종류] · [住所・場所] [半径] [図版の種類]"
 allowed-tools: Bash(curl:*), Bash(mkdir:*), mcp__ccd_view__show_pane
 ---
 
@@ -13,19 +13,20 @@ sitedia 커넥터 도구로 도판(SVG)을 만들고, 사용자와 대화하면�
 - sitedia 도구(`find_site`, `create_diagram` …)가 안 보이면 연결부터 안내한다. 커넥터 주소는 `https://sitedia.app/mcp`이고, 연결할 때 sitedia 로그인 창(구글·이메일, 홈페이지와 같은 계정)이 뜬다.
   - Claude Code: `/mcp` → sitedia → Authenticate.
   - claude.ai·Cowork: 플러그인의 **커넥터(Connectors)** 탭에서 sitedia «연결». 팀·엔터프라이즈 요금제에서 «연결»이 눌리지 않으면 Owner가 먼저 **조직 설정 → 커넥터(Organization settings → Connectors)**에서 `https://sitedia.app/mcp`를 커스텀 커넥터로 추가해야 한다(플러그인을 올려도 커넥터는 조직에 저절로 들어가지 않는다).
-  - 메뉴 이름은 사용자 화면 언어로 말한다. 한국어 화면: 설정의 «사용자 지정» 묶음 → «커넥터»·«플러그인», «추가», «커스텀 커넥터 추가», «연결».
+  - 메뉴 이름은 사용자 화면 언어로 말한다. 한국어 화면: 설정의 «사용자 지정» 묶음 → «커넥터»·«플러그인», «추가», «커스텀 커넥터 추가», «연결». 일본어 화면: «カスタマイズ» → «コネクタ»・«プラグイン», «追加», «カスタムコネクタを追加», «連携». 일본어 설치 안내는 https://sitedia.app/claude/ja/.
 - 도구가 «unauthorized»·401로 실패하면 연결이 풀린 것이다(sitedia 계정 탈퇴·연결 해제 등). 같은 방법으로 다시 연결하라고 안내한다.
 
 ## 2. 만들기
 1. `find_site`로 대지를 찾는다. `query`에는 주소·장소 이름만 넣고(반경은 빼고), 그 장소가 어느 나라인지 알면 `country`(kr·us·jp·gb·es·fr·nl·de…)를 꼭 같이 넣는다 — sitedia가 안 하는 나라여도 넣는다.
    - 후보가 여럿이면 가장 맞는 것을 고르고, 애매하면 주소 두세 개를 보여 주고 묻는다.
-   - 결과에 `available: false`가 있으면 그 `message`를 그대로 전하고 멈춘다: 그 나라 이용권이 없으면 «홈페이지에서 이용권을 구매해 주세요» + 구매 링크, 지원하지 않는 지역이면 그렇다고. 다른 나라 대지로 바꿔 그리거나 우회하지 않는다.
+   - 결과에 `available: false`가 있으면 그 `message`를 사용자가 쓰는 언어로 전하고(링크·날짜·숫자는 그대로) 멈춘다: 그 나라 이용권이 없으면 홈페이지 구매 안내 + 구매 링크, 지원하지 않는 지역이면 그렇다고. 다른 나라 대지로 바꿔 그리거나 우회하지 않는다.
+   - 결과에 `trial_notice`(무료 체험 시작 안내 — 이용권이 없는 계정은 가입한 나라를 48시간 무료로 쓴다)가 있으면 한 줄로 한 번만 전한다.
    - 결과에 `also`가 있으면(같은 이름의 해외 장소) 그 `message`도 한 줄로 알려 준다.
-2. 도판 종류가 분명하면 바로 `create_diagram`(diagram_type에 «건축물 용도»처럼 우리말을 넣어도 된다). 반경을 말했으면 `radius_m`에 미터로 넣는다(«1km» → 1000, «0.5마일» → 805, 150~1600). 말하지 않았으면 비워 둔다(기본 800 m, 미국 805 m). 애매하면 `list_diagram_types`로 보고 고른다. 여러 장을 원하면 하나씩 만든다.
+2. 도판 종류가 분명하면 바로 `create_diagram`(diagram_type에 «건축물 용도»·«建物用途»처럼 우리말·일본어 이름을 넣어도 된다). `lang`에는 사용자가 쓰는 언어(`ko`·`ja`)를 넣는다 — 도판 제목·판 이름·보기 창 글이 그 언어로 나온다. 반경을 말했으면 `radius_m`에 미터로 넣는다(«1km» → 1000, «0.5마일» → 805, 150~1600). 말하지 않았으면 비워 둔다(기본 800 m, 미국 805 m). 애매하면 `list_diagram_types`로 보고 고른다. 여러 장을 원하면 하나씩 만든다.
    - 처음 보는 장소는 그리는 데 10~60초, 일조·개방감 같은 무거운 도판은 더 걸린다. «오래 걸린다»는 오류가 오면 1~2분 뒤 같은 요청을 한 번 다시 한다.
 3. `create_diagram`은 도판(원판)만 낸다 — 제목·범례·출처 줄 없음. 사용자가 말하지 않았으면 이어서 `edit_diagram`으로 제목·범례·출처를 넣지 않는다. 같은 요청에서 «제목·범례도 넣어서»처럼 말했으면 `annotate: true`로 한 번에 만든다(판·위젯이 두 개 생기지 않게).
 4. 도판이 바로 보이게 한다.
-   - 채팅·Desktop 채팅·Cowork: `create_diagram`·`edit_diagram` 뒤에 대화창 안에 도판 보기 창(그림 + «SVG 내려받기»·«크게 보기»)이 뜬다. 그림을 다시 설명하거나 링크를 강조하지 않는다.
+   - 채팅·Desktop 채팅·Cowork: `create_diagram`·`edit_diagram` 뒤에 대화창 안에 도판 보기 창(그림 + SVG 내려받기·크게 보기 단추)이 뜬다. 그림을 다시 설명하거나 링크를 강조하지 않는다.
    - Claude 데스크톱 **Code 탭**(`mcp__ccd_view__show_pane` 도구가 있는 곳): 이 보기 창이 도구 호출과 함께 접혀서 안 보인다. 그래서 `create_diagram`·`edit_diagram` 뒤마다 바로 ① `get_diagram_file`(`format: "both"`)의 `save_command`를 실행해 작업 폴더에 SVG·PNG를 저장하고 ② `mcp__ccd_view__show_pane`(`pane: "file"`, `path`: 결과의 `show_file` = PNG 파일)으로 채팅 옆 파일 창에 도판을 띄우고 ③ 답 맨 앞에 그 PNG를 마크다운 그림으로 한 줄 넣는다: `![잠실역 반경 500 m · 건축물 높이](sitedia_잠실역_height_v1.png)` — 앱이 작업 폴더 그림을 답 안에 바로 그린다. 브라우저 창 `navigate`는 쓰지 않는다(뒤에서만 열려 사용자에게 안 보인다).
    - 터미널 Claude Code: 보기 창도 브라우저 창도 없다. view_url을 주고 4장 «파일»대로 저장한다.
 5. 답은 짧게: 무슨 도판인지 한 줄, 눈에 띄는 분포 한두 줄, view_url 한 줄. 미리보기 그림을 보고 이상한 점이 있으면 같이 말한다.
@@ -59,5 +60,5 @@ sitedia 커넥터 도구로 도판(SVG)을 만들고, 사용자와 대화하면�
 - 채팅: `get_diagram_file`의 링크(SVG·PNG)를 준다. SVG는 일러스트레이터·피그마에서 레이어 이름 그대로 열린다.
 
 ## 5. 안 될 때
-- 결과에 `available: false`가 오면 `message`와 구매 링크(`buy_url`)를 그대로 전하고 멈춘다. 이미 만든 도판도 그 나라 이용권이 끝나면 고치기·합치기·파일 받기에서 같은 안내가 나온다.
+- 결과에 `available: false`가 오면 `message`와 구매 링크(`buy_url`)를 사용자가 쓰는 언어로 전하고(링크는 그대로) 멈춘다. 이미 만든 도판도 그 나라 이용권이 끝나면 고치기·합치기·파일 받기에서 같은 안내가 나온다.
 - 도구 오류 메시지에 고칠 방법(있는 레이어 이름 등)이 같이 오면 그걸 보고 한 번 다시 시도한다.

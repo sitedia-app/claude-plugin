@@ -1,7 +1,7 @@
 {
   "name": "sitedia",
-  "version": "0.7.4",
-  "description": "sitedia 대지분석 다이어그램을 주소·반경으로 만들고 대화로 SVG를 고칩니다. sitedia 계정으로 연결하고 나라별 이용권으로 씁니다(베타). 예: /sitedia 강남역 반경 500m 건축물 용도",
+  "version": "0.7.5",
+  "description": "sitedia 대지분석 다이어그램을 주소·반경으로 만들고 대화로 SVG를 고칩니다(베타). 예: /sitedia 강남역 반경 500m 건축물 용도 · 住所と半径で sitedia の敷地分析ダイアグラムを作り、会話で SVG を修正します（ベータ）。例：/sitedia 渋谷駅 半径500m 建物用途",
   "author": {
     "name": "sitedia",
     "url": "https://sitedia.app"
