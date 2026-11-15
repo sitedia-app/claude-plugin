@@ -1,7 +1,7 @@
 ---
 name: sitedia
-description: sitedia 대지분석 다이어그램을 만들고 고친다. 사용자가 /sitedia를 치거나, 어떤 장소의 대지분석 도판(건축물 용도·준공 연대·높이·건물 피규어 그라운드·도로·녹지·용도지역·필지·지형·경사·일조·개방감·가시권 등)을 만들어 달라거나, 만든 도판의 색·레이어·범례·제목·글자를 바꿔 달라고 할 때 쓴다. 日本語：/sitedia、敷地分析の図版（建物用途・高さ・道路・用途地域など）の作成・修正の依頼にも使う。Site-analysis diagrams (figure-ground, building use/age/height, roads, green, zoning, sun hours) as editable SVG via the sitedia connector.
-argument-hint: "[주소·장소] [반경] [도판 종류] · [住所・場所] [半径] [図版の種類]"
+description: "Make and edit site-analysis diagrams for an address and radius: building use, height, roads, zoning and more."
+argument-hint: "[place or address] [radius] [diagram type]"
 allowed-tools: Bash(curl:*), Bash(mkdir:*), mcp__ccd_view__show_pane
 ---
 
