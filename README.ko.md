@@ -15,7 +15,7 @@ Pro 이용권이 없어도 처음 도판을 만들 때부터 48시간 동안 가
 
 **claude.ai·Cowork**
 
-1. 사용자 지정 → 플러그인 → 추가 → 마켓플레이스 추가(Customize → Plugins → Add → Add marketplace)에 `sitedia-app/claude-plugin`을 넣습니다.
+1. 왼쪽 메뉴의 플러그인(Plugins)에서 추가 → 마켓플레이스 추가(Add → Add marketplace)를 누르고 `sitedia-app/claude-plugin`을 넣습니다.
 2. 목록에 나온 sitedia를 추가합니다.
 3. 플러그인의 커넥터(Connectors) 탭에서 sitedia «연결»을 누르고 sitedia 계정으로 로그인합니다. 커넥터가 아직 없으면 그 탭에서 먼저 추가합니다.
 

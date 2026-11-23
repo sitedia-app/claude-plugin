@@ -13,7 +13,7 @@ Site-analysis diagrams in Claude chat, Cowork and Claude Code. Give Claude an ad
 
 **claude.ai and Cowork**
 
-1. Go to Customize → Plugins → Add → Add marketplace and enter `sitedia-app/claude-plugin`.
+1. Open **Plugins** in the left menu, choose Add → Add marketplace and enter `sitedia-app/claude-plugin`.
 2. Add sitedia from the list.
 3. On the plugin's Connectors tab, click Connect next to sitedia and sign in with your sitedia account. If the connector is not there yet, add it on that tab first.
 

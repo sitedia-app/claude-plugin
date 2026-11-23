@@ -16,7 +16,7 @@ Use the sitedia connector to make SVG site-analysis diagrams and edit them with 
 - If sitedia tools such as `find_site` and `create_diagram` are missing, explain how to connect. The connector URL is https://sitedia.app/mcp. Sign in to sitedia with the same Google or email account used on the website.
   - Claude Code: open `/mcp`, select sitedia, then Authenticate.
   - Claude chat and Cowork: open the plugin's **Connectors** tab and click Connect next to sitedia. If members on a Team or Enterprise plan cannot connect, an organization Owner must first add the URL as a custom connector under **Organization settings → Connectors**. Adding the plugin does not add the connector to the organization.
-  - Use the menu names that match the user's interface. Korean: 사용자 지정 → 커넥터 / 플러그인, 추가, 커스텀 커넥터 추가, 연결. Japanese: カスタマイズ → コネクタ / プラグイン, 追加, カスタムコネクタを追加, 連携.
+  - Plugins and connectors are under **Plugins** in the left menu (Add → Add marketplace or Add custom connector). Use the menu names that match the user's interface. Korean: 플러그인, 추가, 마켓플레이스 추가, 커스텀 커넥터 추가, 연결. Japanese: プラグイン, 追加, マーケットプレイスを追加, カスタムコネクタを追加, 連携.
   - Installation guides: [English](https://sitedia.app/claude/en/), [Korean](https://sitedia.app/claude/?lang=ko), [Japanese](https://sitedia.app/claude/ja/), [Spanish](https://sitedia.app/claude/es/), [French](https://sitedia.app/claude/fr/), [Dutch](https://sitedia.app/claude/nl/), [German](https://sitedia.app/claude/de/).
 - If a tool returns `unauthorized` or HTTP 401, ask the user to reconnect the same way.
 

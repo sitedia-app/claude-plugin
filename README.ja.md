@@ -15,7 +15,7 @@ Claude のチャット・Cowork・Claude Code で住所と半径を伝えると�
 
 **claude.ai・Cowork**
 
-1. 「カスタマイズ」→「プラグイン」→「追加」→「マーケットプレイスを追加」（Customize → Plugins → Add → Add marketplace）に `sitedia-app/claude-plugin` を入力します。
+1. 左のメニューの「プラグイン」（Plugins）で「追加」→「マーケットプレイスを追加」（Add → Add marketplace）を押し、`sitedia-app/claude-plugin` を入力します。
 2. 一覧に出た sitedia を追加します。
 3. プラグインの「コネクタ」（Connectors）タブで sitedia の「連携」（Connect）を押し、sitedia のアカウントでログインします。コネクタがまだない場合は、先にそのタブで追加してください。
 
