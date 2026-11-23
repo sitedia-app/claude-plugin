@@ -1,6 +1,6 @@
 {
   "name": "sitedia",
-  "description": "sitedia site-analysis diagrams for Claude",
+  "description": "sitedia site-analysis diagrams in Claude",
   "owner": {
     "name": "sitedia",
     "url": "https://sitedia.app"
@@ -9,7 +9,7 @@
     {
       "name": "sitedia",
       "source": "./plugins/sitedia",
-      "description": "Make site-analysis diagrams from an address and radius, then edit the SVG by chatting (beta)."
+      "description": "Make site-analysis diagrams from an address and radius, then edit the SVG by chatting."
     }
   ]
 }

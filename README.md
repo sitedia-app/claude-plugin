@@ -3,23 +3,21 @@
   <img alt="sitedia." src="assets/wordmark-ink.svg" height="40">
 </picture>
 
-# sitedia for Claude
+# sitedia plugin for Claude
 
-Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가 sitedia 대지분석 다이어그램을 그려 주고 대화로 SVG도 고칩니다.
+Site-analysis diagrams in Claude chat, Cowork and Claude Code. Give Claude an address and a radius, and it draws a sitedia site-analysis diagram. Then edit the SVG by chatting.
 
-베타 서비스 중입니다. Pro 이용권이 없어도 처음 도판을 만들 때부터 48시간 동안 가입한 나라의 대지를 무료로 쓸 수 있습니다(계정당 한 번).
+[한국어](README.ko.md) · [日本語](README.ja.md)
 
-[日本語](#日本語)
+## Install
 
-## 설치
+**claude.ai and Cowork**
 
-**claude.ai·Cowork**
+1. Go to Customize → Plugins → Add → Add marketplace and enter `sitedia-app/claude-plugin`.
+2. Add sitedia from the list.
+3. On the plugin's Connectors tab, click Connect next to sitedia and sign in with your sitedia account. If the connector is not there yet, add it on that tab first.
 
-1. 사용자 지정 → 플러그인 → 추가 → 마켓플레이스 추가(Customize → Plugins → Add → Add marketplace)에 `sitedia-app/claude-plugin`을 넣습니다.
-2. 목록에 나온 sitedia를 추가합니다.
-3. 플러그인의 커넥터(Connectors) 탭에서 sitedia «연결»을 누르고 sitedia 계정으로 로그인합니다. 커넥터가 아직 없으면 그 탭에서 먼저 추가합니다.
-
-팀·엔터프라이즈 요금제는 조직 Owner가 먼저 조직 설정 → 커넥터(Organization settings → Connectors)에서 `https://sitedia.app/mcp`를 커스텀 커넥터로 추가해야 «연결»이 눌립니다.
+On Team and Enterprise plans, an organization Owner first adds `https://sitedia.app/mcp` as a custom connector under Organization settings → Connectors. After that, members can connect.
 
 **Claude Code**
 
@@ -27,44 +25,26 @@ Claude 채팅·Cowork·Claude Code에서 주소와 반경을 말하면 Claude가
 claude plugin install sitedia --marketplace sitedia-app/claude-plugin
 ```
 
-그다음 `/mcp`에서 sitedia를 골라 로그인합니다. claude.ai에서 추가했다면 Claude Code에도 저절로 들어오니 따로 설치하지 않아도 됩니다.
+Then choose sitedia in `/mcp` and sign in. If you added the plugin on claude.ai, it is already in Claude Code.
 
-**커넥터만**
+**Connector only**
 
-`https://sitedia.app/mcp`를 커스텀 커넥터로 추가합니다. 이 경우 `/sitedia` 명령은 없어서 말로 부탁해야 합니다. 설치 안내: https://sitedia.app/claude/
+Add `https://sitedia.app/mcp` as a custom connector. There is no `/sitedia` command in this case, so ask in plain words.
 
-## 쓰는 법
+Install guide with a video: https://sitedia.app/claude/ (Korean) · https://sitedia.app/claude/ja/ (Japanese)
 
-`/sitedia 강남역 반경 500m 건축물 용도`처럼 부탁하면 도판을 그립니다. 이어서 «업무만 파랗게», «범례 넣어 줘»처럼 말하면 고칩니다.
+## Use
 
-## 주고받는 곳
+Type `/sitedia`, then a place or address, a radius and a diagram type (for example building use or building height). After the diagram appears, ask for changes such as "make offices blue" or "add a legend". Each change is saved as a new version.
 
-이 플러그인은 sitedia.app 한 곳과만 통신합니다. 연결할 때 sitedia 계정으로 로그인합니다. 찾은 주소와 만든 도판은 sitedia 서버에 저장됩니다. 도판은 그 나라 sitedia 이용권이 있을 때 그립니다. Claude Code에서는 도판 파일(SVG·PNG)을 작업 폴더에 내려받을 때 curl을 씁니다.
+## Pass and free trial
 
-## 日本語
+Sign in with your sitedia account, the same one you use on sitedia.app. Diagrams need a sitedia pass for the country of the site. An account with no pass can use sites in its sign-up country free for 48 hours from the first diagram (once per account).
 
-Claude のチャット・Cowork・Claude Code で住所と半径を伝えると、Claude が sitedia の敷地分析ダイアグラムを作り、会話で SVG を修正します。
+## Where data goes
 
-ベータ版です。パスがなくても、はじめて図版を作るときから48時間、登録した国の敷地を無料で使えます（1アカウント1回）。
+The plugin talks only to sitedia.app. Places you look up and diagrams you make are stored on the sitedia server under your account. sitedia does not receive your Claude conversation. In Claude Code, the plugin uses curl to save diagram files (SVG, PNG) to your working folder.
 
-**claude.ai・Cowork**
-
-1. 「カスタマイズ」→「プラグイン」→「追加」→「マーケットプレイスを追加」（Customize → Plugins → Add → Add marketplace）に `sitedia-app/claude-plugin` を入力します。
-2. 一覧に出た sitedia を追加します。
-3. プラグインの「コネクタ」（Connectors）タブで sitedia の「連携」（Connect）を押し、sitedia のアカウントでログインします。コネクタがまだない場合は、先にそのタブで追加してください。
-
-**Claude Code**
-
-```
-claude plugin install sitedia --marketplace sitedia-app/claude-plugin
-```
-
-そのあと `/mcp` で sitedia を選んでログインします。
-
-**使い方**
-
-`/sitedia 渋谷駅 半径500m 建物用途` のように頼むと図版を作ります。続けて「道路をグレーに」「凡例を入れて」のように話すと修正します。
-
-詳しい手順：https://sitedia.app/claude/ja/ ・ 通信先は sitedia.app だけです。
+sitedia is an independent product and is not affiliated with Anthropic.
 
 © sitedia. All rights reserved.
