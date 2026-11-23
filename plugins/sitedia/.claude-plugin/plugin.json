@@ -1,6 +1,6 @@
 {
   "name": "sitedia",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "description": "Make site-analysis diagrams from an address and radius, then edit the SVG by chatting.",
   "author": {
     "name": "sitedia",

@@ -31,7 +31,7 @@ Then choose sitedia in `/mcp` and sign in. If you added the plugin on claude.ai,
 
 Add `https://sitedia.app/mcp` as a custom connector. There is no `/sitedia` command in this case, so ask in plain words.
 
-Installation guides: [English](https://sitedia.app/claude/en/) · [Korean](https://sitedia.app/claude/?lang=ko) · [Japanese](https://sitedia.app/claude/ja/)
+Installation guides: [English](https://sitedia.app/claude/en/) · [Korean](https://sitedia.app/claude/?lang=ko) · [Japanese](https://sitedia.app/claude/ja/) · [Español](https://sitedia.app/claude/es/) · [Français](https://sitedia.app/claude/fr/) · [Nederlands](https://sitedia.app/claude/nl/) · [Deutsch](https://sitedia.app/claude/de/)
 
 ## Use
 

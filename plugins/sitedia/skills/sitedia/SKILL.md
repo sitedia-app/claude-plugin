@@ -17,7 +17,7 @@ Use the sitedia connector to make SVG site-analysis diagrams and edit them with 
   - Claude Code: open `/mcp`, select sitedia, then Authenticate.
   - Claude chat and Cowork: open the plugin's **Connectors** tab and click Connect next to sitedia. If members on a Team or Enterprise plan cannot connect, an organization Owner must first add the URL as a custom connector under **Organization settings → Connectors**. Adding the plugin does not add the connector to the organization.
   - Use the menu names that match the user's interface. Korean: 사용자 지정 → 커넥터 / 플러그인, 추가, 커스텀 커넥터 추가, 연결. Japanese: カスタマイズ → コネクタ / プラグイン, 追加, カスタムコネクタを追加, 連携.
-  - Installation guides: [English](https://sitedia.app/claude/en/), [Korean](https://sitedia.app/claude/?lang=ko), [Japanese](https://sitedia.app/claude/ja/).
+  - Installation guides: [English](https://sitedia.app/claude/en/), [Korean](https://sitedia.app/claude/?lang=ko), [Japanese](https://sitedia.app/claude/ja/), [Spanish](https://sitedia.app/claude/es/), [French](https://sitedia.app/claude/fr/), [Dutch](https://sitedia.app/claude/nl/), [German](https://sitedia.app/claude/de/).
 - If a tool returns `unauthorized` or HTTP 401, ask the user to reconnect the same way.
 
 ## 2. Create a diagram
@@ -28,7 +28,7 @@ Use the sitedia connector to make SVG site-analysis diagrams and edit them with 
    - If the result includes `trial_notice`, relay it once in one line. For an account without a pass, the 48-hour trial covers the country where the account was created.
    - If the result includes `also` (a place with the same name in another country), mention its `message` in one line.
 2. Call `create_diagram` when the requested diagram type is clear. `diagram_type` also accepts names such as “건축물 용도” and “建物用途”. If unsure, use `list_diagram_types`. For multiple diagrams, make them one at a time.
-   - For Korean or Japanese, set `lang` to `ko` or `ja` for diagram titles, labels and viewer text. For other languages, leave `lang` unset and still reply in the user's language.
+   - Set `lang` to the language of the user's request for diagram titles, labels and viewer text: `ko`, `ja`, `en`, `es`, `fr`, `nl` or `de`. For any other language, use `en` and still reply in the user's language.
    - Convert a requested radius to meters and pass it as `radius_m` (150–1600 m; 1 km → 1000, 0.5 mi → 805). If no radius is requested, omit it (default: 800 m, or 805 m in the US).
    - Some diagrams, such as sunlight or sky openness, take longer to draw. If the tool says it is still drawing, retry the same request as directed so the tool can pick up the existing job.
 3. By default, `create_diagram` returns the base diagram without a title, legend or credits. If the user asks for annotations along with the diagram, use `annotate: true` in that call so they get one diagram and one viewer. Otherwise, don't add them in a second call unless asked.
